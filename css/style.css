@@ -1,0 +1,595 @@
+/*
+1. Posicionamiento
+2. Modelo de caja (box model)
+3. Topografia
+4. Visuales 
+5. Otros
+*/
+
+:root{
+    /*Colores*/
+    --bitcoin-orange: #F7931A;
+    --soft-orange: #FFE9D5;
+    --secoundary--blue: #1A9AF7;
+    --soft-blue: #E7F5FF;
+    --ward-black: #201E1C;
+    --black: #282623;
+    --grey: #BABABA;
+    --off-white: #FAF8F7;
+    --white: #FFFFFF;
+}
+
+/*Selector universal*/
+*{
+    box-sizing: border-box; /*Agrega ciertos estilos al renderizar el navegador*/
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 62.5%; /*Para utilizar rem (medida relativa en vez de px)*/
+    font-family: 'DM Sans', sans-serif;
+}
+
+header{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-width: 320px;
+    height: 330px;
+    text-align: center;
+    background: linear-gradient(207.8deg, var(--ward-black) 16.69%, var(--bitcoin-orange) 100%);
+}
+
+header img{
+    width: 150px;
+    height: 25px;
+    margin-top: 60px;
+    align-self: center;
+}
+
+.header__title_container{
+    width: 90%;
+    min-width: 290px;
+    max-width: 900px;
+    height: 215px;
+    margin-top: 40px;
+    text-align: center;
+    align-self: center;
+}
+
+.header__title_container h1{
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--white);
+}
+
+.header__title_container p{
+    margin-top: 25px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--soft-orange)
+}
+
+.header__title_container .header__button{
+    position: absolute; /* va tomar como posicion relative a su padre directo, en este caso el header, 
+    y le da el veneficio de poderse reposicionar en cualquier parte de ese header a pesar de que existan 
+    mas elementos.*/
+    left: calc(50% - 115px);
+    top: 270px;
+    display: block;
+    margin-top: 35px;
+    padding: 15px;
+    width: 230px;
+    height: 50px;
+    background-color: var(--off-white);
+    box-shadow: 0px 4px 8px rgba(89, 73, 30, 0.16);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.header__button span{
+    display: inline-block;
+    width: 13px;
+    height: 8px;
+    margin-left: 10px;
+    background-image: url('../assets/icons/down-arrow.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+main{
+  width: 100%;
+  height: auto;
+  background-color: var(--off-white);  
+}
+
+.main-exchange-container{
+    width: 100%;
+    height: auto;
+    padding: 80px 0 30px 0;
+    text-align: center;
+}
+
+.main-exchange-container__title{
+    width: 90%;
+    min-width: 288px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.main-exchange-container .backgroundtImg{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    background-image: url("../assets/img/bitcoin.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-exchange-container__title h2{
+    margin-bottom: 30px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--black);
+}
+
+.main-exchange-container__title p{
+    margin-bottom: 30px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+    color: #757575;
+}
+
+.main-table-container{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+}
+
+.main-currency-table,
+.main-commission-table
+{
+    width: 70%;
+    min-width: 235px;
+    max-width: 500px;
+    height: 400px;
+    margin: 0 auto;
+    font-family: 'Inter, sans-serif';
+    scroll-snap-align: center;
+}
+
+.main-currency-table .currency-table__title{
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2.3rem;
+    color: var(--bitcoin-orange);
+}
+
+.main-commission-table .commission-table__title{
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2.3rem;
+    color: var(--secoundary--blue);
+}
+
+.currency-table__container,
+.commission-table__container{
+    width: 90%;
+    min-width: 230px;
+    max-width: 300px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.currency-table__container table,
+.commission-table__container table{
+    width: 100%;
+    height: 100%; 
+}
+
+.currency-table__container td,
+.commission-table__container td{
+    width: 50%;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.9rem;
+    color: var(--grey);
+    background-color: var(--white);
+}
+
+.currency-table__container .table__top-left,
+.commission-table__container .table__top-left{
+    border-radius: 15px 0 0 0;
+}
+
+.currency-table__container .table__top-right,
+.commission-table__container .table__top-right{
+    border-radius: 0 15px 0 0;
+}
+
+.currency-table__container .table__bottom-left,
+.commission-table__container .table__bottom-left{
+    border-radius: 0 0 0 15px;
+}
+
+.currency-table__container .table__bottom-right,
+.commission-table__container  .table__bottom-right{
+    border-radius: 0 0 15px 0;
+}
+
+.currency-table__container .table__right
+.commission-table__container .table__right{
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 1.7rem;
+    color: #757575;
+}
+
+.currency-table__container .table__top-right_icon-down{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    background-image: url("../assets/icons/trending-down.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.currency-table__container .table__top-right_icon-up{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    background-image: url("../assets/icons/trending-up.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-currency-table .currency-table__date{
+    display: inline-block;
+    margin: 20px 0 50px 0; 
+    padding: 8px;
+    border-radius: 8px;
+    background-color: var(--soft-orange);
+}
+
+.main-commission-table .commission-table__date{
+    display: inline-block;
+    margin: 20px 0 50px 0; 
+    padding: 8px;
+    border-radius: 8px;
+    background-color: var(--soft-blue);
+}
+
+.main-currency-table .currency-table__date p,
+.main-commission-table .commission-table__date p{
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.5rem;
+    color: var(--ward-black);
+}
+
+.main-product-detail{
+    position: relative; /* Este se hace para posicionar una imagen flotante*/
+    width: 100%;
+    min-width: 320px;
+    height: auto;
+    padding: 20px 10px;
+    background-color: var(--ward-black);
+}
+
+.product-detail__batata-logo{
+    position: absolute; /* Este busca el padre directo que tenga un position relative*/
+    width: 40px;
+    height: 25px;
+    top: -10px;
+    left: calc(50% - 20px);
+    background-image: url('../assets/icons/batata.svg');
+
+    /*tambien la podria centras asi*/
+    /* width: 100%;
+    background-position: center;*/
+    background-repeat: no-repeat; 
+}
+
+.product-detail__title{
+    width: 90%;
+    min-width: 288px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.product-detail__title h2{
+    margin-bottom: 20px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--white);
+}
+
+.product-detail__title p{
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #808080;
+}
+
+.product-detail__card{
+    width: 90%;
+    min-width: 288px;
+    max-width: 400px;
+    min-height: 150px;
+    margin: 15px auto;
+    padding: 15px;
+    background-color: var(--black);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16) ;
+}
+
+.product-detail__card span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 10px;
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.product-detail__card .clock{
+    background-image: url(../assets/icons/clock.svg);
+}
+
+.product-detail__card .eye{
+    background-image: url(../assets/icons/eye.svg);
+}
+
+.product-detail__card .dollar-sign{
+    background-image: url(../assets/icons/dollar-sign.svg);
+}
+
+.product-detail__card .check-circle{
+    background-image: url(../assets/icons/check-circle.svg);
+}
+
+.product__card-title{
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1.8rem;
+    color: var(--white);
+}
+
+.product__card-body{
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: #808080;
+    text-align: justify;
+}
+
+.bitcoin-img-container{
+    width: 100%;
+    min-width: 320px;
+    height: 50vh;
+    background-image: url(../assets/img/bitcoinbaby2x.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.bitcoin-img-container h2{
+    padding-top: 60px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--white);
+
+}
+
+.main-plans-container{
+    width: 100%;
+    min-width: 320px;
+    padding-bottom: 70px;
+    text-align: center;
+}
+
+.plans__tile{
+    width: 90%;
+    min-width: 288px;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.plans__tile h2{
+    padding-top: 50px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--black);
+}
+
+.plans__tile p{
+    padding-top: 30px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: #757575;
+}
+
+.plans-container__slider{
+    display: flex;
+    gap: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 325px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+}
+
+.plans-container__card{
+    position: relative;
+    scroll-snap-align: center;
+    width: 70%;
+    min-width: 190px;
+    max-width: 300px;
+    height: 250px;
+    margin: 50px auto 0;
+    padding: 0 15px;
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(89, 73, 30, 0.16);
+}
+
+.plans-container__card .recommended-card{
+    position: absolute;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    top: -15px;
+    left: calc(50% - 60px);
+    padding: 6px; 
+    color: var(--off-white);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.recommended-year{
+    background-color: var(--bitcoin-orange);
+}
+
+.recommended-semester{
+    background-color: var(--secoundary--blue);
+}
+
+.plan-card__title{
+    padding-top: 30px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--black);
+}
+
+.plan-card__price{
+    padding: 10px 0;
+    font-size: 5.2rem;
+    font-weight: bold;
+    color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plan-card__price span{
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-right: 2px;
+    margin-bottom: 25px;
+}
+
+.plan-card__saving{
+    color: #757575;
+    font-size: 1.2rem;
+}
+
+.plan-card__ca{
+    width: 150px;
+    height: 45px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #faf8f7;
+    border: 2px solid var(--bitcoin-orange);
+    border-radius: 4px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.8rem;
+    color: var(--black);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.plan-card__ca span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(../assets/icons/orange-right-arrow.svg);
+    vertical-align: text-bottom;
+}
+
+footer{
+    display: flex;
+    width: 100%;
+    height: 150px;
+    background-color: var(--bitcoin-orange);
+}
+
+footer section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.footer__left ul{
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    list-style: none;
+    
+}
+
+.footer__left li{
+    margin: 10px 0; 
+}
+
+.footer__left a{
+    text-decoration: none;
+    color: var(--white);
+}
+
+.footer__right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.footer__right img{
+    width: 64px;
+    height: 50px;
+}
+
+.footer__right p{
+    display: inline-block;
+    color: var(--white);
+    padding-top: 20px;
+    text-align: right;
+    width: 100%;
+    padding-right: 16px;
+}
